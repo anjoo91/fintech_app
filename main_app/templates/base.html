@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BankMate -
+        {%block title%}  
+        {% endblock%}
+    </title>
+</head>
+<body>
+    <nav>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="">Account</a></li>
+        <li><a href="">Deposit</a></li>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <nav>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="">LogOut</a></li>
+        </nav>
+    </footer>
+</body>
+</html>
