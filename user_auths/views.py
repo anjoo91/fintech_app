@@ -13,8 +13,9 @@ def RegisterView(request):
             messages.success(request, f'Hey {username}, Your account has been created successfully!') # sending a success message
             new_user = authenticate(username=form.cleaned_data['username'], 
                                     password=form.cleaned_data['password1'])
-            login(request, new_user)
-            return redirect('home')
+            if new_user is not None:
+                login(request, new_user)
+                return redirect('home')
     else:
         form = UserRegisterForm()
     context = {'form': form}
