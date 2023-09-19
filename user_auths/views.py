@@ -22,6 +22,11 @@ def RegisterView(request):
                 login(request, new_user)
                 return redirect('home')
         else: print("Form is not valid:", form.errors)
+    
+    elif request.user.is_authenticated:
+        messages.warning(request, f'You are already logged in!')
+        return redirect('home')
+    
     else:
         form = UserRegisterForm()
     context = {'form': form}
