@@ -32,13 +32,13 @@ $(function($) {
             if ($(window).width() < 992) {
                 dropdown_menu.removeClass('show');
             } else {
-                dropdown_menu.addClass('show');
+                // dropdown_menu.addClass('show');
             }
         });
         if ($(window).width() < 992) {
             dropdown_menu.removeClass('show');
         } else {
-            dropdown_menu.addClass('show');
+            // dropdown_menu.addClass('show');
         }
 
         // Sticky Header

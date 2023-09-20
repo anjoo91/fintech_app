@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BankMate</title>
 
-    <link rel="shortcut icon" href="{% static 'assets/images/fav.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/images/fav_logo.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}">
@@ -38,7 +38,7 @@
                 <div class="row d-flex header-area">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="index.html">
-                            <img src="{% static 'assets/images/logo.png' %}" class="logo" alt="logo">
+                            <img src="{% static 'assets/images/logo_resized_bm.png' %}" class="logo img-fluid" alt="logo" style="max-width: 200px; max-height: 200px;">
                         </a>
                         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbar-content">
@@ -48,9 +48,9 @@
                             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                                 <li class="nav-item dropdown main-navbar">
                                     <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Personal</a>
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" style="margin-right: 20px;">Personal</a>
                                     <ul class="dropdown-menu main-menu shadow">
-                                        <li><a class="nav-link" href="payments-01.html">Freelancer Payments</a></li>
+                                        <li><a class="nav-link" href="payments-01.html">Personal Payments</a></li>
                                         <li><a class="nav-link" href="subscriptions.html">Subscriptions</a></li>
                                         <li><a class="nav-link" href="security.html">Security</a></li>
                                         <li><a class="nav-link" href="fees.html">Fees</a></li>
@@ -58,7 +58,7 @@
                                 </li>
                                 <li class="nav-item dropdown main-navbar">
                                     <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Business</a>
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" style="margin-right: 20px;">Business</a>
                                     <ul class="dropdown-menu main-menu shadow">
                                         <li><a class="nav-link" href="payments-01.html">Business Payments</a></li>
                                         <li><a class="nav-link" href="business-account.html">Business Account</a></li>
@@ -74,7 +74,7 @@
                                 </li>
                                 <li class="nav-item dropdown main-navbar">
                                     <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Company</a>
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" style="margin-right: 20px;">Company</a>
                                     <ul class="dropdown-menu main-menu shadow">
                                         <li><a class="nav-link" href="about-us.html">About Us</a></li>
                                         <li><a class="nav-link" href="career.html">Career</a></li>
@@ -92,7 +92,7 @@
                                 </li>
                                 <li class="nav-item dropdown main-navbar">
                                     <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Help</a>
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" style="margin-right: 20px;">Help</a>
                                     <ul class="dropdown-menu main-menu shadow">
                                         <li><a class="nav-link" href="help-center.html">Help Center</a></li>
                                         <li><a class="nav-link" href="help-center-category.html">Help Category</a></li>
@@ -100,8 +100,8 @@
                                 </li>
                             </ul>
                             <div class="right-area header-action d-flex align-items-center max-un">
-                                <a href="login.html" class="login">Login</a>
-                                <a href="sign-up.html" class="cmn-btn">Sign Up
+                                <a href="login.html" class="login" style="margin-right: 30px; color: #15546A">Login</a>
+                                <a href="sign-up.html" class="cmn-btn" style="margin-right: 20px; background-color: #15546A">Sign Up
                                 </a>
                             </div>
                         </div>
