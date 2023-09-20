@@ -22,16 +22,14 @@
                         <span class="or">Or Continue With</span>
                     </div>
                     <form action="#" method="POST">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-12">
                                 <div class="single-input">
                                     <label for="logemail">Your Email</label>
                                     <input type="text" id="logemail" placeholder="Enter Your Email">
                                 </div>
-                                <div class="single-input">
-                                    <label for="logpassword">Your Password</label>
-                                    <input type="text" id="logpassword" placeholder="Enter Your Password">
-                                </div>
+                                {{form}}
                                 <button class="cmn-btn w-100">Submit</button>
                             </div>
                         </div>
@@ -41,5 +39,5 @@
         </div>
     </div>
 </section>
-{% endblock content%}
+{% endblock %}
 
