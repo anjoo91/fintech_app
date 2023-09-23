@@ -32,3 +32,10 @@ def RegisterView(request):
     context = {'form': form}
     return render(request, 'sign-up.html', context)
     
+def LoginView(request):
+    return render(request, 'login.html')
+
+def LogOutView(request):
+    logout(request.user)
+    messages.info(request, f'You have been logged out successfully!')
+    return redirect('home')
