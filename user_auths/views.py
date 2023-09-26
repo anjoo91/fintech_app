@@ -33,7 +33,20 @@ def RegisterView(request):
     return render(request, 'sign-up.html', context)
     
 def LoginView(request):
-    return render(request, 'login.html')
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            messages.success(request, f'Welcome, {username}!')
+            return redirect('home')
+        else:
+            messages.warning(request, f'Invalid credentials!')
+            return redirect('sign-in')
+    return render(request, 'sign-in.html')
 
 def LogOutView(request):
     logout(request.user)
