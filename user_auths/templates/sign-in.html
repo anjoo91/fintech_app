@@ -13,24 +13,30 @@
                 </div>
                 <div class="col-xl-5">
                     <div class="section-text text-center">
-                        <h5 class="sub-title">Account</h5>
-                        <h2 class="title">Welcome to BankMate</h2>
-                        <p class="dont-acc">Already have an account? <a href="{% url 'sign-in' %}">Login</a></p>
+                        <h5 class="sub-title">Welcome to Bankmate</h5>
+                        <h2 class="title">Sign In</h2>
+                        <p class="dont-acc">Don't have an account yet? <a href="{% url 'sign-up' %}">Sign-up Here</a></p>
                         <div class="reg-google">
-                            <a href="javascript:void(0)"><i class="fab fa-google"></i>Sign up with Google</a>
+                            <a href="javascript:void(0)"><i class="fab fa-google"></i>Log In with Google</a>
                         </div>
-                        <span class="or">Or Continue With</span>
+                        {% comment %} <span class="or">Or Continue With</span> {% endcomment %}
                     </div>
                     <form action="#" method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12">
                                 <div class="single-input">
-                                    <label for="logemail">Your Email</label>
-                                    <input type="text" id="logemail" placeholder="Enter Your Email">
+                                    {% comment %} <label for="logemail">Enter Your Email</label> {% endcomment %}
+                                    <input type="text" required name="email" id="logemail" placeholder="Enter Your Email">
+                                </div>
+                                <br>
+                                <div class="single-input">
+                                    {% comment %} <label for="logpassword">Enter Your Password</label> {% endcomment %}
+                                    <input type="password" required name="password" id="logpassword" placeholder="Enter Your Password">
                                 </div>
                                 {{form}}
-                                <button class="cmn-btn w-100">Sign Up</button>
+                                <br>
+                                <button class="cmn-btn w-100">Log In</button>
                             </div>
                         </div>
                     </form>
