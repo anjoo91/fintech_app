@@ -42,14 +42,14 @@ def LoginView(request):
             user = User.objects.get(email=email)
             user = authenticate(request, email=email, password=password)
             
-            if user is not None: 
+            if user is not None: #if there is a user
                 login(request, user)
                 messages.success(request, f'Welcome! You have logged in successfully!')
                 return redirect('home')
-            else:
+            else: # wrong credentials
                 messages.warning(request, f'Invalid credentials!')
                 return redirect('sign-in')
-        except:
+        except: # user doesn't exist
             messages.warning(request, f'User does not exist!')
     return render(request, 'sign-in.html')
 
