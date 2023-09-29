@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from shortuuid import ShortUUID
+from shortuuidfield import ShortUUIDField
 from user_auths.models import User
 
 ACCOUNT_STATUS = (
@@ -154,7 +155,7 @@ class Account(models.Model):
     account_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
     account_number = models.CharField(max_length=25, unique=True, blank=True, null=True)
     account_id = models.CharField(max_length=25, unique=True, blank=True, null=True)
-    pin_number = models.CharField(max_length=4, unique=True, blank=True, null=True)
+    pin_number = ShortUUIDField(max_length=4, blank=False, null=False, default="0000")
     ref_code = models.CharField(max_length=25, unique=True, blank=True, null=True)
     account_status = models.CharField(max_length=100, choices=ACCOUNT_STATUS, default="inactive")
     date = models.DateTimeField(auto_now_add=True)
