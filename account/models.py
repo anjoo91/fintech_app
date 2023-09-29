@@ -1,7 +1,7 @@
 from django.db import models
 import uuid
-from shortuuidfield import ShortUUIDField
-from  user_auths.models import User
+from shortuuid import ShortUUID
+from user_auths.models import User
 
 ACCOUNT_STATUS = (
     ("active", "Active"),
@@ -152,10 +152,10 @@ class Account(models.Model):
     id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     account_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
-    account_number = ShortUUIDField(length=10, max_length=25, prefix="217", alphabet="0123456789", unique=True)
-    account_id = ShortUUIDField(length=7, max_length=25, prefix="BKM", alphabet="0123456789", unique=True)
-    pin_number = ShortUUIDField(length=4, max_length=7, alphabet="0123456789", unique=True)
-    ref_code = ShortUUIDField(length=10, max_length=25, alphabet="abcdefghijklmnopqrstuvwxyz0123456789", unique=True)
+    account_number = models.CharField(max_length=25, unique=True, blank=True, null=True)
+    account_id = models.CharField(max_length=25, unique=True, blank=True, null=True)
+    pin_number = models.CharField(max_length=7, unique=True, blank=True, null=True)
+    ref_code = models.CharField(max_length=25, unique=True, blank=True, null=True)
     account_status = models.CharField(max_length=100, choices=ACCOUNT_STATUS, default="inactive")
     date = models.DateTimeField(auto_now_add=True)
     kyc_submitted = models.BooleanField(default=False)
@@ -171,3 +171,16 @@ class Account(models.Model):
             return self.user
         except:
             return "Account Model"
+
+    # Overwritting the save method to generate a ShortUUID of specific lengths for each field
+    def save(self, *args, **kwargs):
+        if not self.account_number:
+            self.account_number = ShortUUID().random(length=10)
+        if not self.account_id:
+            self.account_id = ShortUUID().random(length=7)
+        if not self.pin_number:
+            self.pin_number = ShortUUID().random(length=4)
+        if not self.ref_code:
+            self.ref_code = ShortUUID().random(length=10)
+    
+        super(Account, self).save(*args, **kwargs)
