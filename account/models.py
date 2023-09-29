@@ -162,3 +162,12 @@ class Account(models.Model):
     kyc_confirmed = models.BooleanField(default=False)
     recommended_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name="referral", null=True, blank=True)
     
+    class Meta: 
+        # desc date
+        ordering = ['-date']
+    
+    def __str__(self):
+        try: 
+            return self.user
+        except:
+            return "Account Model"
