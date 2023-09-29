@@ -156,3 +156,9 @@ class Account(models.Model):
     account_id = ShortUUIDField(length=7, max_length=25, prefix="BKM", alphabet="0123456789", unique=True)
     pin_number = ShortUUIDField(length=4, max_length=7, alphabet="0123456789", unique=True)
     ref_code = ShortUUIDField(length=10, max_length=25, alphabet="abcdefghijklmnopqrstuvwxyz0123456789", unique=True)
+    account_status = models.CharField(max_length=100, choices=ACCOUNT_STATUS, default="inactive")
+    date = models.DateTimeField(auto_now_add=True)
+    kyc_submitted = models.BooleanField(default=False)
+    kyc_confirmed = models.BooleanField(default=False)
+    recommended_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name="referral", null=True, blank=True)
+    
