@@ -184,7 +184,19 @@ class Account(models.Model):
             self.ref_code = ShortUUID().random(length=10)
     
         super(Account, self).save(*args, **kwargs)
-        
+
+class KYC(models.Model):
+    id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
+    full_name = models.CharField(max_length=1000)
+    image = models.ImageField(upload_to="kyc", default="default.jpg")
+    nationality = models.CharField(max_length=100)
+    marital_status = models.CharField(choices=MARITAL_STATUS, max_length=40)
+    gender = models.CharField(choice=GENDER, max_length=40)
+    identity_type = models.CharField(choice=IDENTITY_TYPE, max_length=140)
+    date_of_birth = models.DateTimeField(auto_now_add=True)
+    signature = models.ImageField(upload_to="kyc")
+
+       
 #Automatically reate an account for every new user        
 def create_account(sender, instance, created, **kwargs):
     if created:
