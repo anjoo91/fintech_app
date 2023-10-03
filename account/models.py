@@ -174,7 +174,7 @@ class Account(models.Model):
         except:
             return "Account Model"
 
-    # Overwritting the save method to generate a ShortUUID of specific lengths for each field
+    # Overwriting the save method to generate a ShortUUID of specific lengths for each field
     def save(self, *args, **kwargs):
         if not self.account_number:
             self.account_number = ShortUUID().random(length=10)
