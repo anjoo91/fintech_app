@@ -3,6 +3,7 @@ import uuid
 from shortuuid import ShortUUID
 from shortuuidfield import ShortUUIDField
 from user_auths.models import User
+from django.db.models.signals import post_save
 
 ACCOUNT_STATUS = (
     ("active", "Active"),
@@ -183,3 +184,16 @@ class Account(models.Model):
             self.ref_code = ShortUUID().random(length=10)
     
         super(Account, self).save(*args, **kwargs)
+        
+#Automatically reate an account for every new user        
+def create_account(sender, instance, created, **kwargs):
+    if created:
+        Account.objects.create(user=instance)
+
+#Save the account when the user is saved
+def save_account(sender, instance, **kwargs):
+    instance.account.save()
+
+#Connect the signals    
+post_save.connect(create_account, sender=User)
+post_save.connect(save_account, sender=User)
