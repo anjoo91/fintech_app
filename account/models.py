@@ -196,7 +196,20 @@ class KYC(models.Model):
     date_of_birth = models.DateTimeField(auto_now_add=True)
     signature = models.ImageField(upload_to="kyc")
 
-       
+    #Address Data
+    country = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    
+    # Contact Data
+    mobile = models.CharField(max_length=100)
+    fax=models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.full_name}"
+    
+    
 #Automatically reate an account for every new user        
 def create_account(sender, instance, created, **kwargs):
     if created:
