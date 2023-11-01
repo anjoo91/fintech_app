@@ -100,8 +100,8 @@
                                 </li>
                             </ul>
                             <div class="right-area header-action d-flex align-items-center max-un">
-                                <a href="login.html" class="login" style="margin-right: 30px; color: #15546A">Login</a>
-                                <a href="sign-up.html" class="cmn-btn" style="margin-right: 20px; background-color: #15546A">Sign Up
+                                <a href= "{% url 'user_auths:sign-in' %}" class="login" style="margin-right: 30px; color: #15546A">Login</a>
+                                <a href="{% url 'user_auths:sign-up' %}" class="cmn-btn" style="margin-right: 20px; background-color: #15546A">Sign Up</a>                                
                                 </a>
                             </div>
                         </div>
