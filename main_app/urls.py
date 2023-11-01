@@ -6,6 +6,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path("about/", views.about, name="about"),
     path("contact/", views.contact, name="contact"),
-    path('user-auths/', include('user_auths.urls', namespace='user_auths')),
+    path('user/', include('user_auths.urls', namespace='user_auths')),
 
 ]
