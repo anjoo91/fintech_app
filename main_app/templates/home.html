@@ -9,9 +9,10 @@
     <p>Home page content</p>
     {% if request.user.is_authenticated %}
         <h4>Hello {{ request.user.username|title }}</h4>
-        <a href="{% url 'sign-out' %}">Sign Out</a>
+        <a href="{% url 'user_auths:sign-out' %}">Sign Out</a>
     {% else %}
-        <a href="{% url 'sign-in' %}"> Sign In</a>
-        <a href="{% url 'sign-up' %}">Sign Up</a>
+    <a href="{% url 'user_auths:sign-in' %}"> Sign In</a>
+    <a href="{% url 'user_auths:sign-up' %}">Sign Up</a>
+    
     {% endif %}
 {% endblock %}
